@@ -1,10 +1,11 @@
-import requests
-from gtts import gTTS
-import os
+import requests #requests library
+from gtts import gTTS   #Google Text-To-Speech Engine
+import os   #System(OS) Module
 
-active_cases=requests.get("https://api.thingspeak.com/apps/thinghttp/send_request?api_key=39MIBO73EC2CREV3")
-death_cases=requests.get("https://api.thingspeak.com/apps/thinghttp/send_request?api_key=R8Q8FVW3WT70UOED")
-vaccination_cases=requests.get("https://api.thingspeak.com/apps/thinghttp/send_request?api_key=3G4JT7G9LR2SALZV")
+#below data is scrapped from the government site ------https://www.mohfw.gov.in/------ and it is intended for personal use only.
+active_cases=requests.get("https://api.thingspeak.com/apps/thinghttp/send_request?api_key=39MIBO73EC2CREV3")    #scrapping active cases
+death_cases=requests.get("https://api.thingspeak.com/apps/thinghttp/send_request?api_key=R8Q8FVW3WT70UOED")     #scrapping death cases
+vaccination_cases=requests.get("https://api.thingspeak.com/apps/thinghttp/send_request?api_key=3G4JT7G9LR2SALZV")       #scrapping vaccinated cases
 
 print("Active Count     :",active_cases.text.strip())
 print("Death Count      :",death_cases.text.strip())
